@@ -33,7 +33,7 @@ the generation of a class list and an automatic constructor.
 %end
 */
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @interface BSUIVibrancyAnimatingPortalView : _UIPortalView
 @end
@@ -41,6 +41,7 @@ the generation of a class list and an automatic constructor.
 %hook BSUIVibrancyAnimatingPortalView
 -(void)didMoveToWindow {
 	%orig;
+	CGRect portalFrame = self.frame;
 	self.frame = CGRectMake(0,-100, 358,221);
 }
 %end
