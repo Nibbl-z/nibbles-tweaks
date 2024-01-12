@@ -42,9 +42,9 @@ the generation of a class list and an automatic constructor.
 
 -(void)viewDidLoad {
 	%orig;
-
+	
 	UIView *ourView = [[UIView alloc] init];
-	view.translatesAutoresizingMaskIntoConstraints = false;
+	ourView.translatesAutoresizingMaskIntoConstraints = false;
 	[self.view addSubview:ourView];
 
 	[ourView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = true;
