@@ -35,7 +35,7 @@ the generation of a class list and an automatic constructor.
 
 @import UIKit;
 
-@interface BSUIVibrancyAnimatingPortalView : UIView
+@interface BSUIVibrancyAnimatingPortalView : UIPortalView
 @end
 
 %hook _BSUIVibrancyAnimatingPortalView
