@@ -35,10 +35,10 @@ the generation of a class list and an automatic constructor.
 
 @import UIKit;
 
-@interface BSUIVibrancyAnimatingPortalView : UIPortalView
+@interface BSUIVibrancyAnimatingPortalView : _UIPortalView
 @end
 
-%hook _BSUIVibrancyAnimatingPortalView
+%hook BSUIVibrancyAnimatingPortalView
 -(void)didMoveToWindow {
 	%orig;
 	self.frame = CGRectMake(0,-100, 358,221);
