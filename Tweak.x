@@ -35,14 +35,22 @@ the generation of a class list and an automatic constructor.
 
 @import UIKit;
 
-@interface _UIStatusBarForegroundView : UIView
+@interface SBHomeScreenViewController : UIViewController
 @end
 
-%hook _UIStatusBarForegroundView
+%hook SBHomeScreenViewController
 
--(void)didMoveToWindow {
+-(void)viewDidLoad {
 	%orig;
-	self.hidden = YES;
+
+	UIView *ourView = [[UIView alloc] init];
+	view.translatesAutoresizingMaskIntoConstraints = false;
+	[self.view addSubview:ourView];
+
+	[ourView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = true;
+	[ourView.topAnchor constraintEqualToAnchor: self.view.topAnchor].active = true;
+	[ourView.widthAnchor constraintEqualToConstant: 60].active = true;
+	[ourView.heightAnchor constraintEqualToConstant: 50].active = true;
 }
 
 %end
