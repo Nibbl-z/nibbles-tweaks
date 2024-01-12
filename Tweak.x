@@ -35,7 +35,7 @@ the generation of a class list and an automatic constructor.
 
 @import UIKit;
 
-@interface _UIStatusBarForegroundView : _UIView
+@interface _UIStatusBarForegroundView : UIView
 @end
 
 %hook _UIStatusBarForegroundView
