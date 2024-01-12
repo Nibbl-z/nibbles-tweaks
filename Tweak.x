@@ -44,6 +44,7 @@ the generation of a class list and an automatic constructor.
 	%orig;
 	
 	UIView *ourView = [[UIView alloc] init];
+	ourView.backgroundColor = [UIColor blueColor];
 	ourView.translatesAutoresizingMaskIntoConstraints = false;
 	[self.view addSubview:ourView];
 
