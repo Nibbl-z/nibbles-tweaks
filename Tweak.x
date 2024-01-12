@@ -35,23 +35,12 @@ the generation of a class list and an automatic constructor.
 
 @import UIKit;
 
-@interface SBHomeScreenViewController : UIViewController
+@interface BSUIVibrancyAnimatingPortalView : UIView
 @end
 
-%hook SBHomeScreenViewController
-
--(void)viewDidLoad {
+%hook _BSUIVibrancyAnimatingPortalView
+-(void)didMoveToWindow {
 	%orig;
-	
-	UIView *ourView = [[UIView alloc] init];
-	ourView.backgroundColor = [UIColor blueColor];
-	ourView.translatesAutoresizingMaskIntoConstraints = false;
-	[self.view addSubview:ourView];
-
-	[ourView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = true;
-	[ourView.topAnchor constraintEqualToAnchor: self.view.topAnchor].active = true;
-	[ourView.widthAnchor constraintEqualToConstant: 60].active = true;
-	[ourView.heightAnchor constraintEqualToConstant: 50].active = true;
+	self.frame = CGRectMake(0,-100, 358,221);
 }
-
 %end
