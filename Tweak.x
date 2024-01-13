@@ -49,24 +49,15 @@ for (UIView *v in self.subviews) {
 
 #import <UIKit/UIKit.h>
 
-@interface UIVisualEffectBackdropView : UIView
-
-@property (nonatomic, copy, readwrite) UIColor *backgroundColor;
+@interface CSQuickActionsButton : UIView
 
 @end
 
-//UIVisualEffectBackdropView *lsShortcutButtonBG;
-
-%hook UIVisualEffectBackdropView
+%hook CSQuickActionsButton
 
 -(void)didMoveToWindow {
+	%log;
 	%orig;
-	
-	if (type(of: self.superview.superview.superview) == CSQuickActionsButton) {
-		self.backgroundColor = [UIColor blueColor];
-	}
-	
-	//lsShortcutButtonBG.backgroundColor = UIColor(1,0,0,1);
 }
 
 %end
