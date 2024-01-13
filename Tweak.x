@@ -35,20 +35,21 @@ the generation of a class list and an automatic constructor.
 
 #import <UIKit/UIKit.h>
 
-@interface CSQuickActionsButton : CSQuickActionsButton
+@interface CSQuickActionsButton : UIView
 @end
 
-_UIVisualEffectBackdropView *lsShortcutButtonBG;
+UIVisualEffectBackdropView *lsShortcutButtonBG;
 
 %hook CSQuickActionsButton
 -(void)didMoveToWindow {
 	%orig;
+
 	for (UIView *v in self.subviews) {
-		if (v isKindOfClass: UIView) {
+		if (v isKindOfClass:[UIView]) {
 			for (UIView *v2 in v.subviews) {
-				if (v2 isKindOfClass: UIVisualEffectView) {
+				if (v2 isKindOfClass: [UIVisualEffectView]) {
 					for (UIView *v3 in v2.subviews) {
-						if (v3 isKindOfClass: _UIVisualEffectBackdropView) {
+						if (v3 isKindOfClass: [UIVisualEffectBackdropView]) {
 							lsShortcutButtonBG = v3; // wtf???
 						}
 					}
@@ -59,4 +60,5 @@ _UIVisualEffectBackdropView *lsShortcutButtonBG;
 
 	lsShortcutButtonBG.backgroundColor = UIColor(1,0,0,1);
 }
+
 %end
