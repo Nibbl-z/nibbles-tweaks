@@ -55,13 +55,10 @@ for (UIView *v in self.subviews) {
 
 %hook CSQuickActionsButton
 
-UIView buttonBg;
-
 -(void)didMoveToWindow {
 	%orig;
-
-	buttonBg = self.subviews[0].subviews[0].subviews[0]
-	buttonBg.backgroundColor = [UIColor redColor];
+	
+	self.subviews[0].subviews[0].subviews[0].backgroundColor = [UIColor redColor];
 }
 
 %end
