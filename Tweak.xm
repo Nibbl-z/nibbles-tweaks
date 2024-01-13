@@ -58,11 +58,14 @@ for (UIView *v in self.subviews) {
 //UIVisualEffectBackdropView *lsShortcutButtonBG;
 
 %hook UIVisualEffectBackdropView
+
+bool isLSButtonDesc = isDescendant(CSQuickActionsButton);
+
 -(void)didMoveToWindow {
 	%orig;
-	bool isLSButtonDesc = isDescendant(CSQuickActionsButton);
+	
 	if (isLSButtonDesc == YES) {
-		self.backgroundColor = UIColor(1,0,0,1);
+		self.backgroundColor = [UIColor blueColor]
 	}
 	
 	//lsShortcutButtonBG.backgroundColor = UIColor(1,0,0,1);
