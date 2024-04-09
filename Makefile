@@ -10,3 +10,5 @@ NibblesTweak_FILES = Tweak.x
 NibblesTweak_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+SUBPROJECTS += nibblestweakprefs
+include $(THEOS_MAKE_PATH)/aggregate.mk
