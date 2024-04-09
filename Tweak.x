@@ -72,7 +72,7 @@ for (UIView *v in self.subviews) {
 -(void)didMoveToWindow {
 	%orig;
 	
-	self.frame.origin.y = 100;
+	self.frame = CGRectMake(0,100, self.frame.size.x, self.frame.size.y)
 }
 
 %end
