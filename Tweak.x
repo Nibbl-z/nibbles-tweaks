@@ -13,7 +13,7 @@ the generation of a class list and an automatic constructor.
 // Hooking an instance method with an argument.
 - (void)messageName:(int)argument {
 	%log; // Write a message about this call, including its class, name and arguments, to the system log.
-
+	
 	%orig; // Call through to the original function with its original arguments.
 	%orig(nil); // Call through to the original function with a custom argument.
 
@@ -60,5 +60,21 @@ for (UIView *v in self.subviews) {
 	
 	self.subviews[0].subviews[0].subviews[0].backgroundColor = [UIColor redColor];
 }
+
+%end
+
+@interface CSProminentTimeView : UIView
+
+@end
+
+%hook CSProminentTimeView
+
+-(void)didMoveToWindow {
+	%orig;
+	
+	self.frame.origin.y = 100
+}
+
+%end
 
 %end
