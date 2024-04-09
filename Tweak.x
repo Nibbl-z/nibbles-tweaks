@@ -72,7 +72,7 @@ for (UIView *v in self.subviews) {
 -(void)didMoveToWindow {
 	%orig;
 	
-	self.frame.origin.y = 100
+	self.frame.origin.y = 100;
 }
 
 %end
