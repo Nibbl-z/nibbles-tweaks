@@ -99,7 +99,7 @@ void preferencesChanged(){
 -(void)didMoveToWindow {
 	%orig;
 
-	self.restrictsVibrancy = vibrancyDisable;
+	self.restrictsVibrancy(vibrancyDisable);
 }
 
 %end
