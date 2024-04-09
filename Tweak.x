@@ -76,5 +76,3 @@ for (UIView *v in self.subviews) {
 }
 
 %end
-
-%end
