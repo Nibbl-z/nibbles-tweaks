@@ -49,6 +49,20 @@ for (UIView *v in self.subviews) {
 
 #import <UIKit/UIKit.h>
 
+static bool vibrancyDisable;
+
+void preferencesChanged(){
+	NSDictionary *prefs = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.nightwind.prefbundleexampleprefs"];
+
+	vibrancyDisable = (prefs && [prefs objectForKey:@"timedatevibrancy"] ? [[prefs valueForKey:@"timedatevibrancy"] boolValue] : YES ); // PSSwitchCell
+}
+
+%ctor{
+	preferencesChanged();
+
+	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)preferencesChanged, CFSTR("com.nibbles.nibblestweakprefs"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
+}
+
 @interface CSQuickActionsButton : UIView
 
 @end
@@ -73,6 +87,19 @@ for (UIView *v in self.subviews) {
 	%orig;
 	
 	self.bounds = CGRectMake(0,-100, self.bounds.size.width, self.bounds.size.height);
+}
+
+%end
+
+@interface SBFLockScreenDateView : UIView
+@end
+
+%hook SBFLockScreenDateView
+
+-(void)didMoveToWindow {
+	%orig;
+
+	self.restrictsVibrancy = vibrancyDisable;
 }
 
 %end
