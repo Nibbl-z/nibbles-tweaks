@@ -82,11 +82,9 @@ for (UIView *v in self.subviews) {
 
 %hook SBFLockScreenDateView
 
--(void)setRestrictsVibrancy:(BOOL)arg1 {
-	NSDictionary *prefs = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.nibbles.nibblestweakprefs"];
-	arg1 = (prefs && [prefs objectForKey:@"timedatevibrancy"] ? [[prefs valueForKey:@"timedatevibrancy"] boolValue] : YES ); // PSSwitchCell
-
-	%orig(YES);
+-(void)viewDidLoad {
+	self.restrictsVibrancy = YES;
+	%orig
 }
 
 %end
