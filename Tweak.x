@@ -86,7 +86,7 @@ for (UIView *v in self.subviews) {
 	NSDictionary *prefs = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.nibbles.nibblestweakprefs"];
 	arg1 = (prefs && [prefs objectForKey:@"timedatevibrancy"] ? [[prefs valueForKey:@"timedatevibrancy"] boolValue] : YES ); // PSSwitchCell
 
-	%orig(arg1);
+	%orig(YES);
 }
 
 %end
