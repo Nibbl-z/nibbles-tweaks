@@ -78,15 +78,26 @@ for (UIView *v in self.subviews) {
 %end
 
 @interface SBFLockScreenDateViewController : UIView
-	@property (assign,nonatomic) BOOL restrictsVibrancy;  
-	@property (nonatomic,retain) UIColor * textColor;  
+	@property (assign,nonatomic) BOOL restrictsVibrancy;   
 @end
 
 %hook SBFLockScreenDateViewController
 
 -(void)viewDidLoad {
 	self.restrictsVibrancy = YES;
-	self.textColor = [UIColor blueColor];
+	%orig;
+}
+
+%end
+
+@interface SBFLockScreenDateView : UIView
+	@property (nonatomic,retain) UIColor * textColor;  
+@end
+
+%hook SBFLockScreenDateView
+
+-(void)viewDidLoad {
+	self.textColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f];
 	%orig;
 }
 
