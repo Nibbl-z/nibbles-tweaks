@@ -83,8 +83,8 @@ for (UIView *v in self.subviews) {
 %hook SBFLockScreenDateView
 
 -(void)viewDidLoad {
-	self.restrictsVibrancy = YES;
-	%orig
+	self._restrictsVibrancy = YES;
+	%orig;
 }
 
 %end
