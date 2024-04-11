@@ -5,6 +5,10 @@ the generation of a class list and an automatic constructor.
 
 %hook ClassName
 
+---------------------
+SHUFLDUF
+---------------------
+
 // Hooking a class method
 + (id)sharedInstance {
 	return %orig;
