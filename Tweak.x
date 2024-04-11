@@ -99,7 +99,8 @@ for (UIView *v in self.subviews) {
 
 -(void)didMoveToWindow {
 	self.restrictsVibrancy = YES;
-	self.textColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f];
+	UIColor *whiteColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f];
+	self.textColor = whiteColor;
 	%orig;
 }
 
