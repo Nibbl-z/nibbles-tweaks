@@ -108,4 +108,9 @@ for (UIView *v in self.subviews) {
 	%orig(arg1);
 }
 
+-(id)initWithFrame:(CGRect)arg1 {
+	[self setTextColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]];
+	%orig(arg1);
+}
+
 %end
