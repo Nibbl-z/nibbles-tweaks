@@ -104,7 +104,7 @@ for (UIView *v in self.subviews) {
 }
 
 -(void)setTextColor:(UIColor *)arg1 {
-	arg1 = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f];
+	arg1 = [UIColor colorWithRed:0.0f green:0.0f blue:1.0f alpha:1.0f];
 	%orig(arg1);
 }
 
