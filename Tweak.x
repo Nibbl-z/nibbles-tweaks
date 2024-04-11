@@ -72,7 +72,7 @@ for (UIView *v in self.subviews) {
 -(void)didMoveToWindow {
 	%orig;
 	
-	self.bounds = CGRectMake(0,-100, self.bounds.size.width, self.bounds.size.height);
+	//self.bounds = CGRectMake(0,-100, self.bounds.size.width, self.bounds.size.height);
 }
 
 %end
@@ -97,7 +97,7 @@ for (UIView *v in self.subviews) {
 
 %hook SBFLockScreenDateView
 
--(void)viewDidLoad {
+-(void)didMoveToWindow {
 	self.restrictsVibrancy = YES;
 	self.textColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f];
 	%orig;
